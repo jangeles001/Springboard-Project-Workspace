@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1745203801932" clover="3.2.0">
+  <project timestamp="1745203801933" name="All files">
+    <metrics statements="15" coveredstatements="11" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1" elements="22" coveredelements="16" complexity="0" loc="15" ncloc="15" packages="1" files="1" classes="1"/>
+    <file name="selection.js" path="C:\Users\C01D_\OneDrive\Desktop\Spring Docs\Project Workspace\sortingExercises\selection.js">
+      <metrics statements="15" coveredstatements="11" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <line num="3" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="6" type="stmt"/>
+      <line num="8" count="6" type="stmt"/>
+      <line num="9" count="14" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="6" type="stmt"/>
+      <line num="12" count="8" type="stmt"/>
+      <line num="15" count="6" type="cond" truecount="1" falsecount="1"/>
+      <line num="16" count="0" type="stmt"/>
+      <line num="17" count="0" type="stmt"/>
+      <line num="18" count="0" type="stmt"/>
+      <line num="19" count="0" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
