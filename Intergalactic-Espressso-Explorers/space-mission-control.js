@@ -69,7 +69,7 @@ function stopMonitoring() {
 // Task 6: Start Countdown Function
 function startCountdown(duration) {
   let countDown = duration;
-  console.log(`Preparing for laucn in T-minus ${countDown} seconds...`);
+  console.log(`Preparing for launch in T-minus ${countDown} seconds...`);
 
   //Decrements the countDown everysecond
   let intervalId = setInterval(() => {

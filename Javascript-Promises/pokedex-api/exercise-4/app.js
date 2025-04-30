@@ -8,11 +8,11 @@ async function getPokemon(...pokemonStr) {
     if (pokemonStr.length === 1) {
       response = await fetch(pokemonListURL + pokemonStr[1]).then((results) =>
         results.json()
-      ); // checks if a specific pokemon is being requested
+      ); // Checks if a specific pokemon is being requested
     } else {
       response = await fetch(pokemonListURL + "?limit=1302").then((results) =>
         results.json()
-      ); // retruns the first 1302 pokemon in pokedex
+      ); // Returns the first 1302 pokemon in pokedex
     }
   } catch (error) {
     error.log("There was an error handling your request");
@@ -24,13 +24,13 @@ async function getPokemon(...pokemonStr) {
 async function getPokedexInfo() {
   let urlList = [];
 
-  // requests information of 3 random pokemon
+  //Requests information of 3 random pokemon
   for (let index = 0; index <= 2; index++) {
     let randomNumber = Math.floor(Math.random() * pokemonURLList.length); // generates random number from 1 to length of pokemon list
     let url = pokemonURLList.splice(randomNumber, 1)[0].url;
     urlList.push(url);
   }
-  //accesses the pokemon info and then makes a call to that pokemons Pokedex entry
+  //Accesses the pokemon info and then makes a call to that pokemons Pokedex entry
   let pokeDexInfo = await Promise.all(
     urlList.map((pokemonUrl) =>
       fetch(pokemonUrl).then((response) => response.json())
@@ -53,8 +53,11 @@ async function getPokedexInfo() {
       entry = speciesInfo.data.flavor_text_entries[randomNumber];
       language = entry.language.name;
     }
+    //Resets button text
+    document.querySelector("#pokedex-button").textContent =
+      "Get Pokedex Entry!";
 
-    //stores pokemon attributes in a local object and places it in an array
+    //Stores pokemon attributes in a local object and places it in an array
     storedPokemon.push({
       id: pokemon.id,
       name: pokeName,
@@ -65,42 +68,51 @@ async function getPokedexInfo() {
 }
 
 async function displayPokemon() {
-  //Iterates through storedPokemon and displayes them on the page.
+  //Stored reference to button and content
+  const contentSection = document.querySelector("#content");
+  const button = document.querySelector("#pokedex-button");
+
+  //Checks for storedPokemon and displayes them on the page when function is called.
   if (storedPokemon.length > 0) {
-    const pokemon = storedPokemon.shift();
+    const pokemon = storedPokemon.shift(); //Grabs stored pokemon information
 
-    const pokemonID = document.createElement("span");
-    let id = document.querySelector("#pokedex-entry");
-    pokemonID.textContent = "Pokemon#" + pokemon.id;
-    id.textContent = pokemonID.textContent;
+    //Creates new elements
+    const newPokemon = document.createElement("div"); //Entire div
+    const entryNumber = document.createElement("h3"); //PokeDex Entry Number
+    const pokeName = document.createElement("h4"); //Pokemon Name
+    const pokeImg = document.createElement("img"); //PokeDex Image
+    const pokeFact = document.createElement("p"); //Flavor_Text
 
-    document.querySelector("#pokemon-name").textContent = pokemon.name;
+    //Creates new section for the current pokedex entry and sets attribute
+    newPokemon.classList.add(`pokemon-card`);
+    pokeFact.classList.add("poke-fact");
+    pokeImg.style.display = "flex";
+    pokeImg.style.alignContent = "Center";
 
-    // Create an image element
-    let sectionTag = document.querySelector("#pokedex-info");
-    const img = document.createElement("img");
-    img.src = pokemon.sprite;
-    img.alt = "image of pokemon";
-    img.setAttribute("id", "ppimage");
+    //Sets the content for each newly created tag
+    entryNumber.textContent = `Pokedex Entry #${pokemon.id}`;
+    pokeName.textContent = pokemon.name;
+    pokeImg.src = pokemon.sprite;
+    pokeImg.alt = "image of pokemon";
+    pokeFact.textContent = pokemon.flavor_text;
 
-    // Append the image to the section
-    let imgTag = document.querySelector("#ppimage");
-    if (imgTag) {
-      // have to check if imgTag exists before we can call removeChild function
-      sectionTag.removeChild(imgTag);
-    }
-    sectionTag.appendChild(img);
-
-    //Displays flavor text fact
-    let fact = document.querySelector("#fact");
-    fact.setAttribute("style", "white-space:pre,");
-    fact.textContent = pokemon.flavor_text;
-    sectionTag.removeChild(fact); //fact tag is already created from the start so we can always call remove before appending next child
-    sectionTag.appendChild(fact);
+    //Appends children to new div then appends the new div to the content div
+    newPokemon.appendChild(entryNumber);
+    newPokemon.appendChild(pokeName);
+    newPokemon.appendChild(pokeImg);
+    newPokemon.appendChild(pokeFact);
+    contentSection.appendChild(newPokemon);
   } else {
+    //Removes all previously created children
+    while (contentSection.firstChild) {
+      contentSection.removeChild(contentSection.firstChild);
+    }
     await getPokemon();
     await getPokedexInfo();
-    await displayPokemon();
+  }
+  //Renames button to clear when stored pokemon is empty
+  if (storedPokemon.length === 0) {
+    button.textContent = "Clear";
   }
 }
 
