@@ -72,13 +72,15 @@ async function displayPokemon() {
   const contentSection = document.querySelector("#content");
   const button = document.querySelector("#pokedex-button");
 
+  button.setAttribute("disabled", "");
+
   //Checks for storedPokemon and displayes them on the page when function is called.
   if (storedPokemon.length > 0) {
     const pokemon = storedPokemon.shift(); //Grabs stored pokemon information
 
     //Creates new elements
     const newPokemon = document.createElement("div"); //Entire div
-    const entryNumber = document.createElement("h3"); //PokeDex Entry Number
+    const entryNumber = document.createElement("h3"); //Pokedex Entry Number
     const pokeName = document.createElement("h4"); //Pokemon Name
     const pokeImg = document.createElement("img"); //PokeDex Image
     const pokeFact = document.createElement("p"); //Flavor_Text
@@ -114,6 +116,7 @@ async function displayPokemon() {
   if (storedPokemon.length === 0) {
     button.textContent = "Clear";
   }
+  button.removeAttribute("disabled");
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
