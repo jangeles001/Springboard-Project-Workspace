@@ -36,7 +36,6 @@ async function getPokedexInfo() {
       fetch(pokemonUrl).then((response) => response.json())
     )
   );
-
   //Iterates pokeDexInfo and looks for a flavor_text_entries
   pokeDexInfo.forEach(async (pokemon) => {
     let pokeName = pokemon.species.name;
