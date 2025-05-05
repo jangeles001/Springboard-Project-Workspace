@@ -34,17 +34,18 @@ const lionProfile = {
   age: 5,
   species: "Lion",
 };
-// TODO: Duplicate an animal profile object using a shallow copy. Add genetic diversity information using the `genetics` property to this copy. Observe and explain how changes to nested properties affect both the original and the copied object.
-const duplicateLionProfile = { ...lionProfile };
 
-duplicateLionProfile.genetics = { diversityScore: 0.89, strength: 10 };
-duplicateLionProfile.genetics.strength = 9;
+const duplicateLionProfile = {
+  ...lionProfile,
+  genetics: { diversityScore: 0.89, strength: 10 },
+};
 
 console.log(lionProfile);
 console.log(duplicateLionProfile);
 /*
  * Observations:
- * The original lionprofile object is preserved after the copy is created and only the new object contains the genetics property.
+ * The original lionprofile object doesn't have a nested property or a reference to anotehr object. Therfore, the original lionProfile is preserved after the copy
+ * is created and only the new object contains the genetics property.
  */
 
 /* Task 5: Analyze Ecosystem Health */
