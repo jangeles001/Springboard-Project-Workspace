@@ -64,8 +64,8 @@ class Graph {
     while (nodesToVisit.length) {
       let currentNode = nodesToVisit.pop();
       dfsArray.push(currentNode.value);
+      //Checks if adjacent nodes exist
       if (currentNode.adjacent.size > 0) {
-        //Checks if adjacent nodes exist
         for (const node of currentNode.adjacent) {
           if (!nodesVisited.has(node)) {
             nodesToVisit.push(node);
@@ -87,8 +87,8 @@ class Graph {
     while (nodesToVisit.length) {
       let currentNode = nodesToVisit.shift(); //
       bfsArray.push(currentNode.value);
+      //Checks if any adjacent nodes exist
       if (currentNode.adjacent.size > 0) {
-        //Checks if any adjacent nodes exist
         for (const node of currentNode.adjacent) {
           if (!nodesVisited.has(node)) {
             nodesToVisit.push(node);
