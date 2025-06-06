@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Giphy Party</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <div id="form-container">
+        <h1 id="rainbow-header">Giphy Party</h1>
+        <div id="form-buttons">
+          <form id="giphy-form">
+            <label for="giphy-search-input">Search:</label>
+            <input
+              type="text"
+              id="giphy-search-input"
+              placeholder="Enter search term"
+            />
+
+            <button type="submit" id="search">Search Giphy!</button>
+          </form>
+          <button type="button" id="clear">Remove Images</button>
+        </div>
+      </div>
+      <div id="gif-container">
+        <!-- Think about displaying the results here -->
+        <!-- Or you can build out your own custom HTML structure -->
+      </div>
+    </main>
+    <!-- Axios is already imported here for your convenience -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

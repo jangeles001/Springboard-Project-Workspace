@@ -1,0 +1,78 @@
+body {
+  background-color: black;
+}
+
+#form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Horizontal alignment*/
+  align-items: center; /* Vertical alignment*/
+  margin-bottom: 2rem; /* Space after div container*/
+}
+
+#form-container h1 {
+  place-items: center;
+}
+
+#rainbow-header {
+  /* Gradient for letters*/
+  background: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  -webkit-background-clip: text; /*Applies gradient to text only*/
+  background-clip: text; /* Defined for compatability*/
+  -webkit-text-fill-color: transparent; /* Makes text transparent so background is visible*/
+  font-weight: bold;
+}
+
+#giphy-form label {
+  color: white;
+}
+
+#form-buttons {
+  display: flex;
+  align-items: flex-end; /* Aligns the bottom of form and button */
+  gap: 0.1rem; /* Spacing between form and button */
+  margin-top: 1rem; /* Space below the heading */
+}
+
+#form-buttons form {
+  display: flex;
+}
+
+#giphy-search-input {
+  color: aliceblue;
+}
+
+#giphy-search-input::placeholder {
+  color: black;
+  opacity: 1; /* Ensures the color is not faded */
+}
+
+#search {
+  background-color: rgb(71, 70, 70);
+  -webkit-text-fill-color: aliceblue;
+}
+
+#clear {
+  background-color: rgb(255, 115, 0);
+  -webkit-text-fill-color: aliceblue;
+}
+
+#gif-container {
+  display: flex;
+  justify-content: center; /* Horizontal alignment*/
+  flex-wrap: wrap;
+  gap: 0.2rem; /* Space between images */
+  padding: 1rem;
+  /*max-width: 90vw;*/
+  margin: 0 auto;
+  align-items: 25rem; /* Vertical alignment */
+}
