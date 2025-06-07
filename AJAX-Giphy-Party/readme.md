@@ -33,7 +33,7 @@ Take some time to note the following:
 
 - Play around with the object and see what properties you can access
 - What is the value and 'data type' of accessing <response.status>?
-  The 'data type' of <response.status> is a nuber;
+  The 'data type' of <response.status> is a number;
 
 - What is the value and 'data type' of accessing <response.data> ?
   The 'data type' of <response.data> is an object;
