@@ -1,0 +1,113 @@
+/* some colors you may find useful:
+  #115ff4
+  #060ce9
+  #28a200
+  #8d2ab5
+  #74119c
+*/
+
+body {
+  background-color: black;
+}
+
+button {
+  background-color: #377ac8;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Copse", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Copse", sans-serif;
+  font-size: x-large;
+}
+
+button:disabled {
+  background-color: darkgrey;
+  cursor: not-allowed;
+}
+
+#button-wrapper {
+  display: flex;
+  justify-content: center; /* Horizontal alignment*/
+  align-items: center; /* Vertical alignment*/
+  margin-bottom: 2rem; /* Space after div container*/
+}
+
+#board-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#jeopardy-board {
+  border-collapse: collapse; /*removes space between panels*/
+  margin: 0 auto;
+}
+
+#jeopardy-board th {
+  border: 2px solid black;
+  padding: 1rem;
+  width: 120px;
+  height: 60px;
+  text-align: center;
+  background-color: #377ac8;
+  color: white;
+  font-family: "Copse", sans-serif;
+}
+
+#jeopardy-board td {
+  border: 2px solid black;
+  padding: 1rem;
+  width: 130px;
+  height: 130px;
+  text-align: center;
+  background-color: #37c3c8;
+  color: white;
+  font-family: "Copse", sans-serif;
+  cursor: pointer;
+}
+
+#jeopardy-board .revealed {
+  background-color: #28a200; /* panel color once revealed */
+  color: white;
+  cursor: default;
+  transition: background-color 0.3s ease;
+}
+
+#spinner-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 50vw; /*Fixed view width position*/
+  height: 50vh; /*Fixed view height position*/
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#spinner {
+  width: 500px;
+  height: 500px;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
