@@ -80,7 +80,7 @@ async function getCategory(catId) {
  *   each with a question for each category in a <td>
  *   (initally, just show a "?" where the question/answer would go.)
  */
-async function fillTable() {
+async function fillTable(categories) {
   //Create table elements and wrapper.
   const boardWrapper = document.createElement("div");
   boardWrapper.setAttribute("id", "board-wrapper");
@@ -191,13 +191,13 @@ function hideLoadingView() {
  * - create HTML table
  * */
 
-async function setupAndStart() {
+async function setupAndStart(categories) {
   showLoadingView();
   const temp = await getCategoryIds();
   for (const id of temp) {
     categories.push(await getCategory(id));
   }
-  fillTable();
+  fillTable(categories);
   hideLoadingView();
 }
 
