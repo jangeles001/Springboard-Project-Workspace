@@ -1,0 +1,51 @@
+.pokecard {
+  background: black;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+  width: 180px;
+  font-family: sans-serif;
+  transition: transform 0.2s ease;
+}
+
+.pokecard:hover {
+  transform: scale(1.05);
+}
+
+.pokecard img {
+  width: 120px;
+  height: 120px;
+}
+
+.pokecard h3 {
+  margin: 0.5rem 0;
+  text-transform: capitalize;
+}
+
+.pokecard p {
+  margin: 0.25rem 0;
+}
+
+/* Background color based on type */
+.type-fire {
+  background-color: #fddfdf;
+}
+.type-water {
+  background-color: #def3fd;
+}
+.type-bug {
+  background-color: #f8f9c5;
+}
+.type-poison {
+  background-color: #e0b0ff;
+}
+.type-electric {
+  background-color: #fffaa5;
+}
+.type-normal {
+  background-color: #eeeeee;
+}
+.type-flying {
+  background-color: #dce4f2;
+}

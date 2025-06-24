@@ -1,0 +1,17 @@
+.card {
+  padding: 1rem;
+  text-align: center;
+  width: 500px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 350px;
+  height: 500px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* ✅ Apply here */
+  border-radius: 12px; /* Optional: to match .card */
+}
