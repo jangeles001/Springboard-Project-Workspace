@@ -1,7 +1,7 @@
 function BlackjackGame({ deck }) {
   let copyList = [...deck]; //Copy to Preserves original array.
   let drawnCards = [];
-  copyList = shuffleArray(copyList); // Randomize card order
+  copyList = shuffleArray(copyList); // Randomize card order.
   drawnCards.push(drawCard(copyList)); //Pull card from shuffled deck.
   drawnCards.push(drawCard(copyList)); //Pull card from shuffled deck.
   const total = calculateHandTotal(drawnCards);
@@ -17,14 +17,14 @@ function BlackjackGame({ deck }) {
  * Shuffle an array.
  *
  * @template T
- * @param {T[]} arrr - The array to shuffle.
- * @returns {T[]} The shuffled array
+ * @param {T[]} arr - The array to shuffle.
+ * @returns {T[]} The shuffled array.
  *
  * */
 function shuffleArray(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const randomIdx = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[randomIdx]] = [arr[randomIdx], arr[i]]; // swap elements to shuffle
+    [arr[i], arr[randomIdx]] = [arr[randomIdx], arr[i]]; // swap elements to shuffle.
   }
   return arr;
 }
@@ -46,7 +46,7 @@ function drawCard(deck) {
 /**
  * Calculate the total value in your hand.
  *
- * @param {{ value: number }[]} hand
+ * @param {{ value: number }[]} hand.
  * @returns {number} The total hand value.
  */
 function calculateHandTotal(hand) {
