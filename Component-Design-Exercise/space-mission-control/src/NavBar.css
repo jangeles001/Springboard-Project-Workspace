@@ -1,0 +1,30 @@
+.NavBar-Container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  min-width: 660px;
+  flex-shrink: 0; /* Prevent flex items from shrinking */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.NavBar-Buttons-Container {
+  display: flex;
+  gap: 20px;
+}
+
+.NavBar-Button {
+  background-color: transparent;
+  color: white;
+  width: 150px;
+  height: 40px;
+  border: 2px solid red;
+}
+
+.NavBar-Button:hover {
+  transform: scale(1.05);
+}
+
+.NavBar-Container h1 {
+  font-size: 50px;
+}

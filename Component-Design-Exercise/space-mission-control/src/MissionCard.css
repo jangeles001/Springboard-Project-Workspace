@@ -1,0 +1,53 @@
+.MissionCard {
+  display: flex;
+  border: 2px solid white;
+  min-width: 600px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.MissionCard-Buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  gap: 10px;
+}
+
+.MissionCard-Button {
+  background-color: transparent;
+  color: white;
+  width: 150px;
+  height: 40px;
+  border: 2px solid green;
+}
+
+.MissionCard-Button:hover {
+  transform: scale(1.05);
+}
+
+.MissionCard-Button:disabled,
+.MissionCard-Button:disabled:hover {
+  transform: none;
+  color: grey;
+}
+
+.MissionCard-Information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.MissionCard-Information p {
+  margin-top: 0;
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.MissionCard,
+.MissionCard-Information,
+.MissionCard-Buttons {
+  flex-shrink: 0; /* Prevent flex items from shrinking */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
