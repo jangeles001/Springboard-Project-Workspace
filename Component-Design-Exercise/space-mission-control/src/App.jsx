@@ -1,9 +1,7 @@
 import {useState} from "react";
 import MissionControl from "./MissionControl.jsx"
 
-function App ()
-{
-	const INITIAL_MISSIONS = [
+const INITIAL_MISSIONS = [
 		{id: 1, name: "Mars Rover", status: "Planned", crew: ["Alice", "Bob"]},
 		{id: 2, name: "Moon Base", status: "Active", crew: ["Charlie", "Dave"]},
 		{id: 3, name: "Venus Observatory", status: "Planned", crew: ["Eve", "Frank"]},
@@ -16,6 +14,9 @@ function App ()
 		{id: 10, name: "Pluto Reclamation", status: "Planned", crew: ["Sam", "Tina"]}
 	];
 
+function App ()
+{
+	
 	const FILTERS = ["All", "Planned", "Active", "Completed"];
 
 	const [filterView, setFilterView] = useState("All");
