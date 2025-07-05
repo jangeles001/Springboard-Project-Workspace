@@ -9,8 +9,17 @@ function App() {
   const [gameStatus, setGameStatus] = useState("Engage the enemy! 📣")
 
   function attack(range){
-    setPlayerOneHealth((health => Math.max(0,health - generateRandomNumber(range))));
-    setPlayerTwoHealth((health => Math.max(0,health - generateRandomNumber(range))));
+    setPlayerOneHealth((health => Math.max(0,health - generateRandomDamage(range))));
+    setPlayerTwoHealth((health => Math.max(0,health - generateRandomDamage(range))));
+  }
+
+  /**
+   * Generate random number within the range of 1-50.
+   * 
+   * @returns int random number
+   */
+  function generateRandomDamage(range){
+    return Math.floor(Math.random() * range);
   }
 
   /**
@@ -40,15 +49,7 @@ function App() {
     setGameStatus(getGameStatus(playerOneHealth, playerTwoHealth))
   }, [playerOneHealth, playerTwoHealth])
   
-  /**
-   * Generate random number within the range of 1-50.
-   * 
-   * @returns int random number
-   */
-  function generateRandomNumber(range){
-    return Math.floor(Math.random() * range);
-  }
-
+  
   return (
     <>
       <SpaceGame gameStatus={gameStatus} attack={attack} playerOneHealth={playerOneHealth} playerTwoHealth={playerTwoHealth} restart={restart} damageRange={50}/>    
