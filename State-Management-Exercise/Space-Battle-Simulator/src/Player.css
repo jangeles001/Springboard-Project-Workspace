@@ -1,0 +1,12 @@
+.Player,
+.Enemy {
+  text-align: center;
+}
+
+.Player {
+  color: greenyellow;
+}
+
+.Enemy {
+  color: red;
+}

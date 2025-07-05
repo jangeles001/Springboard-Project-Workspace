@@ -1,0 +1,31 @@
+.SpaceGame {
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  min-width: 800px;
+  min-height: 100vh;
+}
+
+.GameLayout {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 40px;
+  width: 100%;
+  max-width: auto;
+  min-width: 800px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.GameButton {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}

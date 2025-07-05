@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState} from "react"
 import MissionControl from "./MissionControl.jsx"
 
 const INITIAL_MISSIONS = [
