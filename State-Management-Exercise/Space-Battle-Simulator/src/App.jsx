@@ -14,15 +14,6 @@ function App() {
   }
 
   /**
-   * Generate random number within the range of 1-50.
-   * 
-   * @returns int random number
-   */
-  function generateRandomDamage(range){
-    return Math.floor(Math.random() * range);
-  }
-
-  /**
    * Set the game state to initial values.
    */
   function restart(){
@@ -49,7 +40,15 @@ function App() {
     setGameStatus(getGameStatus(playerOneHealth, playerTwoHealth))
   }, [playerOneHealth, playerTwoHealth])
   
-  
+  /**
+   * Generate random number within the range of 1-50.
+   * 
+   * @returns int random number
+   */
+  function generateRandomDamage(range){
+    return Math.floor(Math.random() * range);
+  }
+
   return (
     <>
       <SpaceGame gameStatus={gameStatus} attack={attack} playerOneHealth={playerOneHealth} playerTwoHealth={playerTwoHealth} restart={restart} damageRange={50}/>    
