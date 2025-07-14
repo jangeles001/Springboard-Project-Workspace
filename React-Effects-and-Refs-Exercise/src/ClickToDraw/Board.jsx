@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import axios from "axios";
 import Card from './Card.jsx';
 import './Board.css';

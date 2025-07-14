@@ -1,0 +1,10 @@
+.Star {
+  font-size: 1.5rem;
+  background: transparent;
+  outline: none;
+  transition: filter 0.3s ease;
+}
+
+.Star:focus {
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
+}
