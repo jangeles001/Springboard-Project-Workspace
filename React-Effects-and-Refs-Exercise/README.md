@@ -1,10 +1,16 @@
-Side Effects Exercise
+React Effects and Refs Exercise
 
-The goal for this application is generate a star every 2.5 seconds, it generate a new star in a random position. With the power vested in my application, I will be able to click on these stars and destroy them.
+## **Part 1: Click to Draw**
 
-## Component Design 🎨
+This first app displays a deck of cards, one card at a time. When the page loads, I send a request to the [Deck of Cards API](http://deckofcardsapi.com/) to create a new deck, and show a button on the page that will let you draw a card.
 
-The application will consist of two main components, each dedicated to handling a distinct segment of the application's functionality. Here's a breakdown of the components you'll develop and their roles:
+Every time you click the button, display a new card, until there are no cards left in the deck. If you try to draw when there are no cards remaining, an alert message appears on the screen with the text “Error: no cards remaining!”.
 
-- `Space` represents the vast expanse of space. It is responsible for generating stars at random locations within its bounds every 2.5 seconds and manages the lifecycle of these stars.
-- `Star` represents individual stars that are randomly placed in space. These components need to be focusable and destructible upon user interaction.
+## **Part 2: Shuffle The Deck**
+
+Adds a button that when clicked, shuffles the deck, so that you can start drawing from a full deck without refreshing the page. Will make a call to the cards api to shuffle the existing deck. The button will not be clickable while the shuffle is in progress. The shuffle removes all of the cards from the screen.
+
+## **Further Study**
+
+- Styles app so that it looks nice.
+- When you click on the button rather than drawing a single card, the page will draw one card every second. These draws will continue until you press the button again, or until the deck has been exhausted (at which point the alert message from Part 1 will appear). The button will change text appropriately. (for example, it toogles between “Start” and “Stop”

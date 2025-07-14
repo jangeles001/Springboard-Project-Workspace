@@ -39,6 +39,7 @@ function Board({ deckID }){
     
     return (
         <div className='Board-Container'>
+            {deckCount === 0 && window.alert("Error: no cards remaining!")}
             {deckCount !== 0 && <button onClick={drawCard}>Gimmie a Card!</button>}
             <div className="Card-Stack">
                 {

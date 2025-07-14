@@ -19,6 +19,7 @@ function Board({ deckID }){
 
         if(deckCount === 0){ 
             setIsRunning(false);
+            window.alert("Error: no cards remaining!")
             return
         }
 
@@ -50,7 +51,7 @@ function Board({ deckID }){
 
     useEffect(() => {
         if(isRunning){
-            drawID.current = setInterval(drawCard, 1000);
+            drawID.current = setInterval(drawCard, 500);
         }
         
         return () => {
