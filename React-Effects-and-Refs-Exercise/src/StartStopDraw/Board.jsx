@@ -19,7 +19,6 @@ function Board({ deckID }){
 
         if(deckCount === 0){ 
             setIsRunning(false);
-            window.alert("Error: no cards remaining!")
             return
         }
 
@@ -41,24 +40,33 @@ function Board({ deckID }){
                     yOffset: yOffset
                 }
 
-            setDeckCount(res.data.remaining);
-            setPile(pile => [...pile, card]); 
+            setPile(pile => [...pile, card]);
+            setDeckCount(res.data.remaining); 
             });} catch (e){
                 setIsRunning(false);
                 console.log(e);
             }
+            
         }
 
     useEffect(() => {
         if(isRunning){
-            drawID.current = setInterval(drawCard, 500);
+            drawID.current = setInterval(drawCard, 1000);
         }
-        
+
         return () => {
             clearInterval(drawID.current);
         }
 
-    }, [isRunning, deckCount])
+    }, [isRunning])
+
+    useEffect(() => {
+        if(deckCount === 0){
+            setTimeout(() => {
+                window.alert("Error: no cards remaining!");
+            }, 100);
+        }
+    }, [deckCount])
     
     return (
         <div className='Board-Container'>

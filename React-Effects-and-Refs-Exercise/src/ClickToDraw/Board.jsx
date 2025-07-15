@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState,useEffect} from 'react';
 import axios from "axios";
 import Card from './Card.jsx';
 import './Board.css';
@@ -35,11 +35,16 @@ function Board({ deckID }){
         setPile(pile => [...pile, card]);
         });
     }
+
+    useEffect(() => {
+        if(deckCount === 0){
+            window.alert("Error: no cards remaining!")
+        }
+    },[deckCount])
     
     
     return (
         <div className='Board-Container'>
-            {deckCount === 0 && window.alert("Error: no cards remaining!")}
             {deckCount !== 0 && <button onClick={drawCard}>Gimmie a Card!</button>}
             <div className="Card-Stack">
                 {
