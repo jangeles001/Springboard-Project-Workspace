@@ -2,7 +2,12 @@
   font-size: 1.5rem;
   background: transparent;
   outline: none;
+  cursor: pointer;
   transition: filter 0.3s ease;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .Star:focus {
