@@ -1,0 +1,103 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form button {
+  margin-left: auto;
+  width: 150px;
+  margin-top: 20px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 15px;
+  font-size: 17px;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.name-input:focus,
+.name-input-required:focus,
+.quantity-input:focus,
+.quantity-input-required:focus,
+.description-input:focus,
+.description-input-required:focus {
+  outline: none;
+}
+
+.name-input:required,
+.quantity-input:required,
+.description-input:required {
+  border: 2px solid red;
+}
+
+.name-input,
+.name-input-requried {
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+.quantity-input,
+.quantity-input-required {
+  min-width: 100px;
+  box-sizing: border-box;
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button,
+.quantity-input-required::-webkit-outer-spin-button,
+.quantity-input-required::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.description-input,
+.description-input-required {
+  height: 150px;
+  min-width: 450px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  resize: none;
+}
+
+.description-input::placeholder {
+  line-height: normal;
+}
+
+.checkbox-input-wrapper {
+  border: 2px solid white;
+  padding: 10px;
+  color: white;
+}
+
+.checkbox-input {
+  width: min-content;
+}
+
+.name-input-required,
+.quantity-input-required,
+.description-input-required,
+.checkbox-input-wrapper-required {
+  border: 2px solid red;
+  padding: 10px;
+  color: white;
+}
+
+.checkbox-required {
+  padding-left: 10px;
+  font-size: 14px;
+  color: red;
+}
+
+.add-button {
+  background-color: transparent;
+  border: 2px solid green;
+  color: white;
+  padding: 14px 20px;
+  font-size: 1.1rem;
+}

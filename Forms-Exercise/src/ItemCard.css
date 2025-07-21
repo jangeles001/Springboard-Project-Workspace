@@ -1,0 +1,10 @@
+.item-card-wrapper {
+  padding: 15px;
+  padding-top: 5px;
+  font-size: 20px;
+}
+
+.item-card-wrapper h1 {
+  padding-top: 5px;
+  padding-bottom: 10px;
+}

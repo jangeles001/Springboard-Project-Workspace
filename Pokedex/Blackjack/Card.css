@@ -12,6 +12,6 @@
 .card img {
   width: 350px;
   height: 500px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* ✅ Apply here */
-  border-radius: 12px; /* Optional: to match .card */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
 }
