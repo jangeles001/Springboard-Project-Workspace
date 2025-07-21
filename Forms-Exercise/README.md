@@ -1,12 +1,19 @@
-# React + Vite
+# Forms Exercise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Spacecraft Builder 🛠️
 
-Currently, two official plugins are available:
+In this exercise, I will practice forms in React by creating a comprehensive Spacecraft Builder application. 🏗️
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project offers a fantastic chance to deepen my grasp of React fundamentals, including component-based architecture, state management, handling user inputs, and managing the interaction between parent and child components. 🌟
 
-## Expanding the ESLint configuration
+My main goal is to develop an application that enables users to design their spacecraft by inputting their items into the inventory. The application also displays inventory, each with detailed information such as the item's name, quantity, and purpose. Users will also be able to delete each item.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Component Design 🎨
+
+The Spacecraft Builder application will consist of several components, each dedicated to handling a distinct segment of the application's functionality. Here's a breakdown of the components you'll develop and their roles:
+
+- `SpacecraftBuilder` is the pivotal component that maintains the inventory for the spacecraft design process.
+- `ItemForm` allows user input for adding items to the inventory. It functions by invoking callback functions handed down from `SpacecraftBuilder`, demonstrating how child components can initiate state changes in the parent.
+- `InventoryDisplay` is a stateless component that showcases items in the inventory.
+- `ItemCard` provides detailed information about each item, such as its name, quantity, and purpose.
+- `ItemAction` enables users to delete an item. It functions by invoking callback functions handed down from `SpacecraftBuilder` to `InventoryDisplay`.
