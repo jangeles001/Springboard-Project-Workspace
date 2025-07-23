@@ -1,0 +1,6 @@
+[
+    { "id": "Mars", "Facts": ["The fourth planet from the Sun.", "Is a cold.", "Red Planet", "Has a thin atmosphere primarily composed of carbon dioxide."]},
+    { "id": "Venus", "Facts": ["The second planet from the Sun.", "Often called Earth's twin or sister.", "It is the hottest planet in our solar system.", "Surface hot enough to melt lead."]},
+    { "id": "OrionNebula", "Facts": ["Also known as Messier 42 (M42).", " It's a region of active star formation.", "Roughly 1,300 light-years.", " It's the closest such region to Earth."]},
+    { "id": "AndromedaGalaxy", "Facts": ["Also known as Messier 31 (M31)", "Is a spiral galaxy and the closest major galaxy to our Milky Way.", " It's located about 2.5 million light-years away", "Andromeda is larger and more massive than the Milky Way."]}
+]

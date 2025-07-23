@@ -1,0 +1,8 @@
+.facts {
+  display: flex;
+  width: 80vh;
+  background-color: rgb(128, 128, 128, 0.3);
+  text-align: left;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+}
