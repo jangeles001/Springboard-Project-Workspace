@@ -38,12 +38,6 @@ textarea {
   margin-top: 20px;
 }
 
-.craft__build__button:disabled {
-  margin-left: auto;
-  margin-top: 20px;
-  color: grey;
-}
-
 .craft__required {
   display: flex;
   color: red;
@@ -68,6 +62,8 @@ button {
   max-height: 50px;
 }
 
-:focus {
+.form input:focus,
+.form textarea:focus {
+  outline: none;
   border-color: green;
 }

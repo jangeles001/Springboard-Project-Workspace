@@ -23,7 +23,7 @@ export const sendSpacecraftToPlanet = createAsyncThunk('spacecrafts/sendSpacecra
         const response = await spaceTravelApi.sendSpacecraftToPlanet({spacecraftId, targetPlanetId})
         return response.data
     }catch (error){
-        return error.message
+        return thunkAPI.rejectWithValue(error.message);
     }
 })
 
@@ -48,6 +48,10 @@ export const planetsSlice = createSlice({
         })
          .addCase(sendSpacecraftToPlanet.fulfilled, (state, action) => {
             state.status = 'succeeded'
+        })
+        .addCase(sendSpacecraftToPlanet.rejected, (state, action) => {
+            state.status = 'failed'
+            state.error = action.error.message
         })
     }
 })

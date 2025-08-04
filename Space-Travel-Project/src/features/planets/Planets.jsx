@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectAllPlanets, getPlanetsStatus, getPlanetsError, fetchPlanets, sendSpacecraftToPlanet } from './planetsSlice.jsx'
+import { selectAllPlanets, getPlanetsStatus, fetchPlanets, sendSpacecraftToPlanet } from './planetsSlice.jsx'
 import { selectAllSpacecrafts, fetchSpacecrafts } from '../spacecraft/SpacecraftsSlice.jsx'
 import { Ship } from '../spacecraft/Ship.jsx'
 import LoadingScreen from '../../components/LoadingScreen.jsx'
@@ -20,15 +20,15 @@ const Planets = () => {
   const [selectedSpacecraftId, setSelectedSpacecraftId] = useState(null)
 
   const tryDispatch = async (planetId, spacecraftId) => {
-    console.log("TRYING:", planetId, spacecraftId);
-    if (planetId && spacecraftId) {
-      dispatch(sendSpacecraftToPlanet({ spacecraftId, targetPlanetId: planetId }))
-      dispatch(fetchSpacecrafts()); // <== refresh the spacecrafts slice
-      dispatch(fetchPlanets());
+    if (planetId !== null && planetId !== undefined && spacecraftId !== null && spacecraftId !== undefined) {
+      await dispatch(sendSpacecraftToPlanet({ spacecraftId, targetPlanetId: planetId })).unwrap()
+      await dispatch(fetchSpacecrafts()); //await needed to ensure selected style is removed correctly after rerender
+      await dispatch(fetchPlanets());
       setSelectedPlanetId(null)
       setSelectedSpacecraftId(null)
     }
   }
+
   const handlePlanetClick = (planetId) => {
     tryDispatch(planetId, selectedSpacecraftId)
     setSelectedPlanetId(planetId)
@@ -42,6 +42,7 @@ const Planets = () => {
   useEffect(() => {
     if (planetsStatus === 'idle'){
       dispatch(fetchPlanets())
+      dispatch(fetchSpacecrafts())
       }
     }, [planetsStatus, dispatch])
 
@@ -57,10 +58,10 @@ const Planets = () => {
           const planetSpacecrafts = spacecrafts?.filter(spacecraft => {
             return spacecraft.currentLocation === planet.id
           })
-          const ships = planetSpacecrafts.map(ships => {
-            return <Ship key={ships.id} id={ships.id} image={ships.pictureUrl} name={ships.name} capacity={ships.capacity} onImageClick={handleSpacecraftClick} />
+          const ships = planetSpacecrafts.map(ship => {
+            return <Ship key={ship.id} id={ship.id} image={ship.pictureUrl} name={ship.name} capacity={ship.capacity} onImageClick={handleSpacecraftClick} isSelected={selectedSpacecraftId === ship.id}/>
           })
-           return <SelectBox key={planet.id} id={planet.id} name={planet.name} population={planet.currentPopulation} source={planet.pictureUrl} details={ships} action="" actionName="" isRowLayout={true} onImageClick={handlePlanetClick}/>
+           return <SelectBox key={planet.id} id={planet.id} name={planet.name} population={planet.currentPopulation} source={planet.pictureUrl} details={ships} action="" actionName="" isRowLayout={true} onImageClick={handlePlanetClick} isSelected={selectedPlanetId === planet.id} />
       })}
   </div>
   )
