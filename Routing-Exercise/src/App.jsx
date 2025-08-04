@@ -8,6 +8,7 @@ import { FactsLoader } from './loaders/FactsLoader.jsx';
 import Home from './pages/Home.jsx'
 import NotFound from './pages/NotFound.jsx'
 import Facts from './pages/Facts.jsx'
+import NotFoundError from './pages/NotFoundError.jsx';
 
 //layout
 import RootLayout from './layouts/RootLayout.jsx'
@@ -15,7 +16,7 @@ import FactsLayout from './layouts/FactsLayout.jsx'
 
 //Context Providers
 import { HistoryProvider } from './context/HistoryProvider.jsx'
-import NotFoundError from './pages/NotFoundError.jsx';
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(

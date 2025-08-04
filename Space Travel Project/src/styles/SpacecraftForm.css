@@ -1,0 +1,73 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  min-width: 50vw;
+  margin-top: 5%;
+  gap: 20px;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  border: 3px dotted white;
+}
+
+.form form input,
+textarea {
+  color: white;
+  border: 3px solid white;
+  min-height: 40px;
+  background-color: transparent;
+}
+
+#craft__capacity::-webkit-outer-spin-button,
+#craft__capacity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.craft__back__button {
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.craft__build__button {
+  margin-left: auto;
+  margin-top: 20px;
+}
+
+.craft__build__button:disabled {
+  margin-left: auto;
+  margin-top: 20px;
+  color: grey;
+}
+
+.craft__required {
+  display: flex;
+  color: red;
+}
+
+.craft__required ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+textarea {
+  resize: none;
+  min-height: 200px;
+}
+
+button {
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 10px;
+  max-height: 50px;
+}
+
+:focus {
+  border-color: green;
+}

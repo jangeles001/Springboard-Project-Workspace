@@ -1,0 +1,22 @@
+.home__content {
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  min-height: 80vh;
+  gap: 40px;
+  padding: 10px;
+  border: 2px dashed white;
+}
+
+.home__content--footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  padding: 1rem;
+}
+
+h1 {
+  display: flex;
+  padding-bottom: 5px;
+}

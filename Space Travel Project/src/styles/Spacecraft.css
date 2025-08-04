@@ -1,0 +1,45 @@
+.spacecraft {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  min-width: 80vw;
+  min-height: 40vh;
+  padding: 50px;
+  gap: 50px;
+  overflow: hidden;
+}
+
+.spacecraft__details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 20vh;
+  max-height: 20vh;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.spacecraft__specifications,
+.spacecraft__description {
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+  max-width: 80%;
+  min-height: 20vh;
+  max-height: 20vh;
+  gap: 25px;
+  padding: 15px;
+  overflow-wrap: normal;
+}
+
+.spacecraft__img {
+  border: 3px dotted white;
+  min-width: 15vw;
+  max-width: 15vw;
+  min-height: 15vh;
+  max-height: 15vh;
+  padding: 10px;
+}

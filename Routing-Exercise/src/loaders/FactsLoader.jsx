@@ -1,4 +1,3 @@
-//loader function
 export const FactsLoader = async ({ params }) => {
    let response = await fetch('/mock-data.json')
 

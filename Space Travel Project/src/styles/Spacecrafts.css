@@ -1,0 +1,15 @@
+.spacecrafts {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  color: white;
+}
+.build {
+  max-width: 200px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}

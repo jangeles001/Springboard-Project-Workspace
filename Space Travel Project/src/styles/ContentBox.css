@@ -1,0 +1,11 @@
+.content__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+.box {
+  padding: 20px;
+  border: 2px dashed white;
+}

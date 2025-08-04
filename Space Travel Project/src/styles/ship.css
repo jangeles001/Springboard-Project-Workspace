@@ -1,0 +1,22 @@
+.ship{
+    display: flex;
+    flex-direction: column;
+    max-width: 10%;
+    min-width: 10%;
+    max-height: 40%;
+    min-height: 40%;
+}
+
+
+.ship p{
+    padding-left: 3px;
+}
+
+.ship img {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 40%;
+    min-height: 40%;
+    margin-bottom: 10px;
+    border: 3px dotted white;
+}

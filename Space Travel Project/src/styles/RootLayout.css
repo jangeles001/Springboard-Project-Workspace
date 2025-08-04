@@ -1,0 +1,31 @@
+.root-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: large;
+  color: white;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px;
+  gap: 130px;
+  color: white;
+  overflow-wrap: normal;
+  text-decoration: none;
+}
+nav a:link,
+nav a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+nav a.active {
+  border: 2px solid white;
+  text-decoration: none;
+  padding: 5px;
+}
