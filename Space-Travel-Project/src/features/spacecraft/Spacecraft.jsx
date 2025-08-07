@@ -21,7 +21,7 @@ export default function Spacecraft() {
 
     return (
         <div className='spacecraft'>
-            <img className='spacecraft__img' src={`/${spacecraft.pictureUrl}` || '/rocket-b.svg'}></img>
+            <img className='spacecraft__img' src={spacecraft.pictureUrl ? `/${spacecraft.pictureUrl}` : '/rocket-b.svg'}></img>
             <div className='spacecraft__details'>
                 <span className='spacecraft__specifications'>
                     <p>Name: {spacecraft.name}</p>

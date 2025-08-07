@@ -49,7 +49,6 @@ export const destroySpacecraft = createAsyncThunk('spacecrafts/destroySpacecraft
 export const getSpacecraftById = createAsyncThunk('spacecrafts/getSpacecraftById', async (spacecraftId) => {
     try{
         const response = await spaceTravelApi.getSpacecraftById({id: spacecraftId})
-        console.log(response)
         return response.data
     }catch (error){
         return error.message
@@ -59,8 +58,7 @@ export const getSpacecraftById = createAsyncThunk('spacecrafts/getSpacecraftById
 export const SpacecraftsSlice = createSlice({
     name: 'spacecrafts',
     initialState,
-    reducers: {
-        
+    reducers: {   
     },
     extraReducers(builder){
         builder
@@ -90,7 +88,6 @@ export const SpacecraftsSlice = createSlice({
         .addCase(getSpacecraftById.fulfilled, (state, action) => {
             state.selectedSpacecraft.status = 'succeeded';
             state.selectedSpacecraft.data = action.payload;
-            console.log(state.selectedSpacecraft.data)
         })
         .addCase(getSpacecraftById.rejected, (state, action) => {
             state.selectedSpacecraft.status = 'failed';

@@ -13,7 +13,6 @@ const Spacecrafts = () => {
     const navigate = useNavigate();
     const spacecrafts = useSelector(selectAllSpacecrafts);
     const spacecraftsStatus = useSelector(getSpacecraftsStatus);
-    const error = useSelector(getSpacecraftsError);
 
     const handleClick = () => {
         navigate('/form')
