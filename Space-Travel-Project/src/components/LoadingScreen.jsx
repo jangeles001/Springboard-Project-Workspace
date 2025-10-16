@@ -1,4 +1,3 @@
-// src/components/LoadingScreen.jsx
 import '../styles/LoadingScreen.css';
 
 const LoadingScreen = () => {
