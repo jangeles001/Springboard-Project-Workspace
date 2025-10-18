@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "name": "pizza(slice)",
+      "price": 2
+    },
+    {
+      "name": "hot dog",
+      "price": 2
+    },
+    {
+      "name": "water",
+      "price": 1
+    },
+    {
+      "name": "soda",
+      "price": 2
+    },
+    {
+      "name": "lemonade",
+      "price": 2
+    },
+    {
+      "name": "ice cream",
+      "price": 3
+    },
+    {
+      "name": "apple",
+      "price": 1.25
+    },
+    {
+      "name": "pie",
+      "price": 8.25
+    },
+    {
+      "name": "sandwhich",
+      "price": 7.5
+    }
+  ]
+}
