@@ -6,6 +6,9 @@ let db = new Client({
   connectionString: DB_URI,
 });
 
-db.connect();
+async function connectDB() {
+  await db.connect();
+  console.log(DB_URI);
+}
 
-module.exports = db;
+module.exports = { db, connectDB };
