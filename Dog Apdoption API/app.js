@@ -1,9 +1,11 @@
 const express = require("express");
 const cors = require("cors");
-const session = require("express-session")
+const session = require("express-session");
 const dotenv = require("dotenv");
-const dogsRouter = require("./routes/dogs")
 const connectDB = require("./db");
+const dogsRouter = require("./routes/dogs");
+const cookieParser = require("cookie-parser");
+const usersRouter = require("./routes/users");
 
 // Setup
 dotenv.config();
@@ -20,17 +22,18 @@ app.use(
     saveUninitialized: false,
   })
 );
+app.use(cookieParser());
 
 // Routes
 app.use("/dogs", dogsRouter);
-// app.use("/user",()=>{});
+app.use("/users", usersRouter);
 
 // Server start
-async function startSever(){
-  try{
+async function startSever() {
+  try {
     await connectDB();
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-  }catch(error){
+  } catch (error) {
     console.log(error);
   }
 }
