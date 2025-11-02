@@ -1,11 +1,15 @@
 const mongoose = require("mongoose");
-const { v4: uuidv4 } = require("uuid");
 
 // Mongoose schema definition
 const userSchema = new mongoose.Schema(
   {
-    uuid: { type: String, default: uuidv4, unique: true, index: true },
-    username: { type: String, minlength: 4, required: true, trim: true },
+    username: {
+      type: String,
+      minlength: 4,
+      unique: true,
+      required: true,
+      trim: true,
+    },
     hashedPassword: { type: String, minLength: 6, required: true },
     adoptedDogs: { type: [String], default: [] },
     registeredDogs: { type: [String], default: [] },

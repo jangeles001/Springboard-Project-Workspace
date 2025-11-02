@@ -14,3 +14,7 @@ export async function hashPassword(password, salt) {
 export async function verifyPassword(providedPassword, storedHash) {
   return await bcrypt.compare(providedPassword, storedHash);
 }
+
+export async function comparePassword(inputPassword, hashedPassword) {
+  return await bcrypt.compare(inputPassword, hashedPassword);
+}

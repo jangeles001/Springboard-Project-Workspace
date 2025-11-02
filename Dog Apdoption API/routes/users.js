@@ -1,12 +1,20 @@
 const express = require("express");
-const { createUser, getRegisteredDogs } = require("../repositories/users");
+const {
+  createUser,
+  getRegisteredDogs,
+  getAdoptedDogs,
+  login,
+} = require("../controllers/usersController");
 const validate = require("../validation/schemaValidator");
-const { newUserZodSchema } = require("../models/zodUserSchema");
+const { userZodSchema } = require("../models/zodUserSchema");
 const validateCredentials = require("../validation/authValidator");
 
 const router = express.Router();
 
-router.get("/registeredDogs", validateCredentials, getRegisteredDogs);
-router.post("/register", validate(newUserZodSchema), createUser);
+router
+  .get("/dogs/registered", validateCredentials, getRegisteredDogs)
+  .get("/dogs/adopted", validateCredentials, getAdoptedDogs)
+  .post("/register", validate(userZodSchema), createUser)
+  .post("/login", validate(userZodSchema), login);
 
 module.exports = router;

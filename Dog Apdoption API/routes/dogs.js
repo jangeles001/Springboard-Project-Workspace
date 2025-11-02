@@ -12,7 +12,6 @@ const {
 
 const router = new express.Router();
 
-// GET / => {dogs: [dog, ...]}
 router
   .get("/", validateCredentials, allDogs)
   .get("/:dog", validateCredentials, getDog)
