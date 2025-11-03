@@ -6,12 +6,12 @@ const {
   deleteDog,
 } = require("../services/dogService");
 
-// GET  dogs/ => {dogs: [dog, ...]}
+// GET  dogs/ => {allDogs: [dog, ...]}
 async function allDogs(req, res) {
   try {
     // Returns all dogs in the collection
     const results = await getAllDogs();
-    return res.status(200).json({ AllDogs: results.dogs });
+    return res.status(200).json({ allDogs: results.dogs });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
@@ -31,7 +31,7 @@ async function getDog(req, res) {
   }
 }
 
-// POST  dogs/register => {message: Dog ${newDog.name} (UUID:${newDog.uuid}) registered successfully!}
+// POST  dogs/register => {message: newDogName (UUID: newDogUUID) registered successfully!}
 async function registerDogs(req, res) {
   try {
     // Destructures the name, description, uuid from the body of the request
@@ -43,13 +43,14 @@ async function registerDogs(req, res) {
 
     return res.status(201).json({
       message: `${results.newDog.name} (UUID: ${results.newDog.uuid}) successfully registered!`,
+      dogUUID: results.newDog.uuid,
     });
   } catch (error) {
     return res.status(500).json(error.message);
   }
 }
 
-// POST  /adpot/:dog => { message: `You have successfully adopted ${dog.name} (UUID: ${dog.uuid})}
+// POST  /adpot/:dog => { message: `dogOwner successfully adopted dogName`}
 async function adopt(req, res) {
   try {
     const dogUUID = req.params.dog;
@@ -58,12 +59,13 @@ async function adopt(req, res) {
     const username = req.user.sub;
 
     const results = await adoptDog(dogUUID, username, adoptionMessage);
-    return res
-      .status(200)
-      .json({
-        message: `${results.owner} successfully adopted ${results.dogName}`,
-      });
+    return res.status(200).json({
+      message: `${results.owner} successfully adopted ${results.dogName}`,
+    });
   } catch (error) {
+    if (error.message === "DOG_NOT_FOUND")
+      return res.status(404).json({ error: error.message });
+
     if (error.message === "CANNOT_ADOPT_DOG_YOU_OWN_OR_IS_NOT_AVAILABLE")
       return res.status(401).json({ error: error.message });
 
@@ -71,7 +73,7 @@ async function adopt(req, res) {
   }
 }
 
-// DELETE  dogs/:dog => {message: `${dogInformation.name} (UUID:${dogInformation.uuid}) deleted successfully!`}
+// DELETE  dogs/:dog => {message: `dogName (UUID: dogUUID) has been unregistered`}
 async function deleteDogs(req, res) {
   try {
     // Pulls dogUUID from the request params and the userUUID from the request user object

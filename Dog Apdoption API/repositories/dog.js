@@ -10,6 +10,26 @@ async function findDogByUUID(dogUUID) {
   return await Dog.findOne({ uuid: dogUUID });
 }
 
+// Finds dogs with the provided dogUUIDs
+async function findDogsByUUIDs(dogUUIDs, filter = "all", page = 1, limit = 10) {
+  const query = { uuid: { $in: dogUUIDs } };
+
+  if (filter === "available" || filter === "adopted") {
+    query.status = filter;
+  }
+
+  const totalDogs = await Dog.countDocuments(query);
+  const skip = (page - 1) * limit;
+
+  const dogs = await Dog.find(query)
+    .sort({ createdAt: 1 })
+    .skip(skip)
+    .limit(limit)
+    .lean();
+
+  return { dogs, totalDogs };
+}
+
 // Creates new dog document with the provided name, description, and owner
 async function createDog(name, description, username) {
   return await Dog.create({ name, description, owner: username });
@@ -30,6 +50,7 @@ async function deleteDogByUUID(dogUUID) {
 module.exports = {
   findAllDogs,
   findDogByUUID,
+  findDogsByUUIDs,
   createDog,
   updateDogByUUID,
   deleteDogByUUID,

@@ -1,5 +1,6 @@
 const userService = require("../services/userService");
 
+// POST  users/register => {message: `User username created and authenticated`}
 async function createUser(req, res) {
   try {
     const { username, password } = req.body;
@@ -24,6 +25,7 @@ async function createUser(req, res) {
   }
 }
 
+// POST  users/login => {message: `username logged in!` }
 async function login(req, res) {
   try {
     const { username, password } = req.body;
@@ -49,6 +51,7 @@ async function login(req, res) {
   }
 }
 
+// GET  users/dogs/registered => { page, limit, totalDogs, totalPages, dogs}
 async function getRegisteredDogs(req, res) {
   try {
     const { page = 1, limit = 10, filter = "all" } = req.query;
@@ -67,6 +70,7 @@ async function getRegisteredDogs(req, res) {
   }
 }
 
+// GET  users/dogs/adopted => { page, limit, totalDogs, totalPages, dogs}
 async function getAdoptedDogs(req, res) {
   try {
     const { page = 1, limit = 10 } = req.query;

@@ -11,14 +11,16 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"axios": "^1.13.1",
+		"axios-cookiejar-support": "^6.0.4",
 		"chai": "^6.2.0",
 		"chai-http": "^5.1.2",
 		"cross-env": "^10.1.0",
 		"mocha": "^11.7.4",
-		"nodemon": "^3.1.0"
+		"nodemon": "^3.1.0",
+		"tough-cookie": "^5.1.2"
 	},
 	"dependencies": {
-		"axios": "^1.13.0",
 		"bcrypt": "^6.0.0",
 		"cookie-parser": "^1.4.7",
 		"cors": "^2.8.5",

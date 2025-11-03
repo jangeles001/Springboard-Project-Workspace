@@ -3,11 +3,7 @@ const userRepo = require("../repositories/user");
 
 async function getAllDogs() {
   const dogs = await dogRepo.findAllDogs();
-
-  // Returns no dogs have been registered if dogs array length is 0
-  if (dogs.length === 0) return "No dogs have been registered!";
-
-  return { dogs }; // Return the list directly
+  return { dogs }; // Return the list directly even if empty
 }
 
 async function getDogWithUUID(dogUUID) {
@@ -26,7 +22,7 @@ async function registerDog(name, description, username) {
 
 async function adoptDog(dogUUID, username, adoptionMessage) {
   const dog = await dogRepo.findDogByUUID(dogUUID);
-  if (!dog) return { status: 404, error: "Dog doesn't exist!" };
+  if (!dog) throw new Error("DOG_NOT_FOUND");
 
   if (dog.owner === username || dog.status === "adopted")
     throw new Error("CANNOT_ADOPT_DOG_YOU_OWN_OR_IS_NOT_AVAILABLE");
@@ -51,19 +47,24 @@ async function adoptDog(dogUUID, username, adoptionMessage) {
 
   await userRepo.addAdoptedDog(username, dog.uuid);
 
-  return { owner: dog.owner, dogName: dog.name };
+  return { owner: username, dogName: dog.name };
 }
 
 async function deleteDog(dogUUID, username) {
+  // Gets the dog with the provided dogUUID from the db
   const dog = await dogRepo.findDogByUUID(dogUUID);
-  if (!dog) throw new Error("DOG_NOT_FOUND");
+  if (!dog) throw new Error("DOG_NOT_FOUND"); // Throws error if dog is not found
 
+  // Gets the user with the provided username from the database
   const user = await userRepo.findUserByUsername(username);
+
+  // Throws error if the user is not the registered owner or if the dog has already been adopted
   if (!user.registeredDogs.includes(dogUUID) || dog.status === "adopted")
     throw new Error(
       "CANNOT_DELETE_DOG_YOU_DID_NOT_REGISTER_OR_THAT_HAS_BEEN_ADOPTED"
     );
 
+  // Proceeds witht the deletion from the dogs collection and user registeredDogs list
   await dogRepo.deleteDogByUUID(dogUUID);
   await userRepo.removeRegisteredDog(username, dogUUID);
 

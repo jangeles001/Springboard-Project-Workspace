@@ -62,38 +62,26 @@ async function getUserRegisteredDogs(
   limit = 10,
   filter = "all"
 ) {
-  // Retreives user with the provided username
+  // Fetch user document first
   const user = await userRepo.findUserByUsername(username);
+
+  // Saftey check but redundant since user authorization is required before request is processed
   if (!user) throw new Error("USER_NOT_FOUND");
 
-  // Computes pagination indices
-  const start = (page - 1) * limit;
-  const end = page * limit;
-
-  // Slices user adoptedDogs array at the pagination indices
-  const dogUUIDsPage = user.registeredDogs.slice(start, end);
-
-  // Retreives the informaiton for all of the users registerd dogs
-  const paginatedDogs = await Promise.all(
-    dogUUIDsPage.map(async (dogUUID) => {
-      return dogRepo.findDogByUUID(dogUUID);
-    })
+  // Finds and filters registeredDogs
+  const { dogs, totalDogs } = await dogRepo.findDogsByUUIDs(
+    user.registeredDogs,
+    filter,
+    page,
+    limit
   );
-
-  // Applies filter if requested
-  let filteredDogs = paginatedDogs;
-  if (filter === "available") {
-    filteredDogs = paginatedDogs.filter((dog) => dog.status === "available");
-  } else if (filter === "adopted") {
-    filteredDogs = paginatedDogs.filter((dog) => dog.status === "adopted");
-  }
 
   return {
     page,
     limit,
-    totalDogs: user.registeredDogs.length,
-    totalPages: Math.ceil(user.registeredDogs.length / limit),
-    dogs: filteredDogs,
+    totalDogs,
+    totalPages: Math.ceil(totalDogs / limit),
+    dogs,
   };
 }
 
@@ -102,26 +90,20 @@ async function getUserAdoptedDogs(username, page = 1, limit = 10) {
   const user = await userRepo.findUserByUsername(username);
   if (!user) throw new Error("USER_NOT_FOUND");
 
-  // Computes pagination indices
-  const start = (page - 1) * limit;
-  const end = page * limit;
-
-  // Slices user adoptedDogs array at the pagination indices
-  const dogUUIDsPage = user.adoptedDogs.slice(start, end);
-
-  // Retreives the informaiton for all of the users registerd dogs
-  const paginatedDogs = await Promise.all(
-    dogUUIDsPage.map(async (dogUUID) => {
-      return dogRepo.findDogByUUID(dogUUID);
-    })
+  // Finds and filters adoptedDogs
+  const { dogs, totalDogs } = await dogRepo.findDogsByUUIDs(
+    user.adoptedDogs,
+    "all",
+    page,
+    limit
   );
 
   return {
     page,
     limit,
-    totalDogs: user.adoptedDogs.length,
-    totalPages: Math.ceil(user.adoptedDogs.length / limit),
-    dogs: paginatedDogs,
+    totalDogs,
+    totalPages: Math.ceil(totalDogs / limit),
+    dogs,
   };
 }
 

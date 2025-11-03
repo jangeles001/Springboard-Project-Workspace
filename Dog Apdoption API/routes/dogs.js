@@ -1,6 +1,6 @@
 const express = require("express");
-const validate = require("../validation/schemaValidator");
-const validateCredentials = require("../validation/authValidator");
+const validate = require("../middlewares/schemaValidator");
+const validateCredentials = require("../middlewares/authValidator");
 const { newDogZodSchema } = require("../models/zodDogSchema");
 const {
   allDogs,

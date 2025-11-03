@@ -5,9 +5,9 @@ const {
   getAdoptedDogs,
   login,
 } = require("../controllers/usersController");
-const validate = require("../validation/schemaValidator");
+const validate = require("../middlewares/schemaValidator");
 const { userZodSchema } = require("../models/zodUserSchema");
-const validateCredentials = require("../validation/authValidator");
+const validateCredentials = require("../middlewares/authValidator");
 
 const router = express.Router();
 
